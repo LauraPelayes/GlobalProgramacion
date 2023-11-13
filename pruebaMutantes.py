@@ -1,14 +1,5 @@
-# GlobalProgramacion
-# Mutantes Python
-*Laura Pelayes
-*29222785
-laurapelayes82@gmail.com
+adnMutante=[]
 
-# El proyecto se trata de recorrer una matriz de 6 x 6, con letras entre A, C, G, y T, ingresadas por el usuario, y chequear que no haya más de dos secuencias de 4 letras repetidas de forma vertical, horizontal o diagonal, y si así fuera, devolver un mensaje diciendo que se trata de un adn mutante.
-# Lo resolvi primero seteando la matriz yo, verificando con bucles for que haya 4 letras repetidas consecutivas, y guardando un "horizontal", "vertical" o "diagonal" en un array por cada secuencia que fuese encontrada, para después ver si el array contenía dos o más elementos, determinando así si se trataba de un ADN mutante o no y poder devolver el mensaje correspondiente al usuario.
-
-# Se corre de esta manera: primero ingresas las 6 secuencias de 6 letras entre las permitidas, luego de ingresadas, el programa evalúa si hay 4 letras repetidas en dos ocasiones o más, de manera diagonal, horizontal o vertical en la matriz generada, y de acuerdo a esto, muestra el mensaje de "adn mutante" o "adn no mutante" según las ocurrencias de letras repetidas.
-```
 def buscarMutantes(matriz, letrasMutantes):
     
     # Buscar horizontal
@@ -79,4 +70,3 @@ if len(adnMutante)>1:
     print(f"En la matriz ingresada por el usuario hay dos o más secuencias de {letrasMutantes} letras repetida, el Adn es Mutante")
 else:
     print(f"En la matriz ingresada por el usuario hay menos de dos secuencias de {letrasMutantes} letras repetida, el adn no es mutante")
-```
