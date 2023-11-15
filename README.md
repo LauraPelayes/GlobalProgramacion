@@ -2,90 +2,51 @@
 # Mutantes Python
 *Laura Pelayes
 *29222785
-laurapelayes82@gmail.com
+*laurapelayes82@gmail.com
 
-# El proyecto se trata de recorrer una matriz de 6 x 6, con letras entre A, C, G, y T, ingresadas por el usuario, y chequear que no haya más de dos secuencias de 4 letras repetidas de forma vertical, horizontal o diagonal, y si así fuera, devolver un mensaje diciendo que se trata de un adn mutante.
+# El proyecto: ADN Mutante Detector
 
-# Lo resolvi primero seteando la matriz yo, verificando con bucles for que haya 4 letras repetidas consecutivas, y guardando un "horizontal", "vertical" o "diagonal" en un array por cada secuencia que fuese encontrada, para después ver si el array contenía dos o más elementos, determinando así si se trataba de un ADN mutante o no y poder devolver el mensaje correspondiente al usuario.
+Este código implementa un detector de secuencias de ADN mutante en una matriz bidimensional. La matriz se puede proporcionar manualmente o ingresar por el usuario. La detección de secuencias mutantes se realiza en las direcciones horizontal, vertical y diagonal.
 
-# Se corre de esta manera: primero ingresas las 6 secuencias de 6 letras entre las permitidas, luego de ingresadas, el programa evalúa si hay 4 letras repetidas en dos ocasiones o más, de manera diagonal, horizontal o vertical en la matriz generada, y de acuerdo a esto, muestra el mensaje de "adn mutante" o "adn no mutante" según las ocurrencias de letras repetidas. Esto hace cada bucle de búsqueda: 
+# Funcionalidades:
 
-# Búsqueda Horizontal: recorre cada fila de la matriz. Dentro de este bucle, hay otro bucle que busca a lo largo de la fila, examinando secuencias de letras con una longitud específica, en este caso, 4. Si encuentra una secuencia donde todas las letras son iguales, agrega la palabra "horizontal" a una lista llamada adnMutante que después se examina para saber si hay más de una palabra guardada, y así mostrar el mensaje de "adn mutante".
+buscarMutantes(matriz, letrasMutantes):
+Busca secuencias mutantes en una matriz dada.
+Identifica y almacena las ubicaciones de las secuencias mutantes en las direcciones horizontal, vertical y diagonal.
+Imprime las secuencias mutantes encontradas.
+matrizUsuario(filas, columnas):
 
-# Búsqueda Vertical: recorre cada columna de la matriz. Similar al de búsqueda horizontal, dentro de este bucle hay otro bucle que se desplaza hacia abajo a lo largo de la columna. Examina secuencias de letras con la longitud especificada, 4, y si encuentra una secuencia donde todas las letras son iguales, agrega la palabra "vertical" a la lista adnMutante para ser evaluado al finalizar el recorrido.
+Permite al usuario ingresar manualmente una matriz de ADN.
+Valida que la fila ingresada tenga el número correcto de columnas y contenga solo letras A, C, G o T.
 
-# Búsqueda Diagonal: recorre la matriz de manera diagonal. Para cada posición en la matriz, busca las 4 letras iguales en diagonal. Si encuentra una secuencia donde todas las letras son iguales, agrega "diagonal" a la lista adnMutante para ser evaluada al final.
+# Ejemplo de Uso:
 
-# Al finalizar los recorridos, se evalúa si en la lista adnMutante hay más dos palabras o más guardadas, lo que quiere decir que hay 2 o más secuencias de 4 letras iguales en alguna de las posiciones buscadas, y muestra el mensaje de adn mutante en caso de ser así, y sino, muestra el mensaje de que no hay adn mutante.
+Tamaño de la matriz: 6x6
+Longitud de letras mutantes: 4
+El código incluye un ejemplo harcodeado y un ejemplo con matriz generada por el usuario.
+
+# Resultado:
+
+Imprime si hay dos o más secuencias de letras mutantes repetidas en la matriz, indicando que el ADN es mutante.
+En caso contrario, indica que no hay suficientes secuencias mutantes en la matriz para ser considerado mutante.
+Nota: El código incluye comentarios detallados para facilitar la comprensión del funcionamiento.
+
 ```
-def buscarMutantes(matriz, letrasMutantes):
-    
-    # Buscar horizontal
-    for fila in matriz:
-        for i in range(len(fila) - letrasMutantes + 1):
-            grupo = fila[i:i + letrasMutantes]
-            if len(set(grupo)) == 1:
-                adnMutante.append("Horizontal")
-                print(f"{letrasMutantes} letras repetidas en forma horizontal: {grupo}")
+Cómo ejecutarlo:
 
-    # Buscar vertical
-    for j in range(len(matriz[0])):
-        for i in range(len(matriz) - letrasMutantes + 1):
-            grupo = ''.join(matriz[i + k][j] for k in range(letrasMutantes))
-            if len(set(grupo)) == 1:
-                adnMutante.append("Vertical")
-                print(f"{letrasMutantes} letras repetidas en forma vertical: {grupo}")
-
-    # Buscar diagonal
-    for i in range(len(matriz) - letrasMutantes + 1):
-        for j in range(len(matriz[0]) - letrasMutantes + 1):
-            grupo = ''.join(matriz[i + k][j + k] for k in range(letrasMutantes))
-            if len(set(grupo)) == 1:
-                adnMutante.append("Diagonal")
-                print(f"{letrasMutantes} letras repetidas en forma diagonal: {grupo}")
-
-    return adnMutante
-
-# Ejemplo harcodeado
-#matrizAdn = [
-#    "ATGCGA",
-#    "CAGTGC",
-#    "TTATGT",
-#    "AGAAGG",
-#    "CCCCTA",
-#    "TCACTG"
-#]
+Ingresar al directorio donde está el archivo, abrir la terminal e ingresar por teclado: Mutants.py
+Es necesario tener instalado python en el equipo
+Ingresar las 6 secuencias de 6 letras pedidas por teclado
+Al finalizar, el programa muestra un texto donde indica si el adn es mutante o no
 
 
-# Ejemplo con matriz generada por usuario
-def matrizUsuario(filas, columnas):
-    matrizAdnU= []
-    for _ in range(filas):
-        fila = input(f"Ingrese las 6 letras (solo A, C, G, T): ").upper()
-        while len(fila) != columnas or any(letra not in {'A', 'C', 'G', 'T'} for letra in fila):
-            print(f"Error: La fila debe tener exactamente {columnas} letras A, C, G, T.")
-            fila = input(f"Ingrese las 6 letras (solo A, C, G, T): ").upper()
-        matrizAdnU.append(fila)
-    return matrizAdnU
-
-# Tamaño matriz
-filas = 6
-columnas = 6
-letrasMutantes=4
-# Obtener la matriz del usuario
-matrizAdnU= matrizUsuario(filas, columnas)
-
-# Prueba con ambas formas
-#letrasMutantes = 4
-#resultado = buscarMutantes(matrizAdn, letrasMutantes)
-#if len(adnMutante)>1:
-#    print("En la matriz harcodeada hay más de una secuencia de Adn repetida, el Adn es Mutante")
-#else:
-#    print("No hay secuencias de adn mutante")
-    
-resultado = buscarMutantes(matrizAdnU, letrasMutantes)
-if len(adnMutante)>1:
-    print(f"En la matriz ingresada por el usuario hay dos o más secuencias de {letrasMutantes} letras repetida, el Adn es Mutante")
-else:
-    print(f"En la matriz ingresada por el usuario hay menos de dos secuencias de {letrasMutantes} letras repetida, el adn no es mutante")
 ```
+# Prueba con matriz ingresada por el usuario:
+Ingrese las 6 letras (solo A, C, G, T): AGCTCA
+Ingrese las 6 letras (solo A, C, G, T): GATCTG
+Ingrese las 6 letras (solo A, C, G, T): TCGCTA
+Ingrese las 6 letras (solo A, C, G, T): TCGATC
+Ingrese las 6 letras (solo A, C, G, T): AGCATC
+Ingrese las 6 letras (solo A, C, G, T): AGCTAT
+4 letras repetidas en forma vertical: TTTT
+En la matriz ingresada por el usuario hay menos de dos secuencias de 4 letras repetida, el adn no es mutante
