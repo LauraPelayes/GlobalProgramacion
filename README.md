@@ -44,11 +44,19 @@ Al finalizar, el programa muestra un texto donde indica si el adn es mutante o n
 
 ```
 # Prueba con matriz ingresada por el usuario:
+
 Ingrese las 6 letras (solo A, C, G, T): AGCTCA
+
 Ingrese las 6 letras (solo A, C, G, T): GATCTG
+
 Ingrese las 6 letras (solo A, C, G, T): TCGCTA
+
 Ingrese las 6 letras (solo A, C, G, T): TCGATC
+
 Ingrese las 6 letras (solo A, C, G, T): AGCATC
+
 Ingrese las 6 letras (solo A, C, G, T): AGCTAT
+
 4 letras repetidas en forma vertical: TTTT
+
 En la matriz ingresada por el usuario hay menos de dos secuencias de 4 letras repetida, el adn no es mutante
