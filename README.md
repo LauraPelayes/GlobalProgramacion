@@ -11,9 +11,11 @@ Este código implementa un detector de secuencias de ADN mutante en una matriz b
 # Funcionalidades:
 
 buscarMutantes(matriz, letrasMutantes):
+
 Busca secuencias mutantes en una matriz dada.
 Identifica y almacena las ubicaciones de las secuencias mutantes en las direcciones horizontal, vertical y diagonal.
 Imprime las secuencias mutantes encontradas.
+
 matrizUsuario(filas, columnas):
 
 Permite al usuario ingresar manualmente una matriz de ADN.
@@ -23,7 +25,7 @@ Valida que la fila ingresada tenga el número correcto de columnas y contenga so
 
 Tamaño de la matriz: 6x6
 Longitud de letras mutantes: 4
-El código incluye un ejemplo harcodeado y un ejemplo con matriz generada por el usuario.
+El código incluye un ejemplo con matriz generada por el usuario.
 
 # Resultado:
 
@@ -31,9 +33,9 @@ Imprime si hay dos o más secuencias de letras mutantes repetidas en la matriz, 
 En caso contrario, indica que no hay suficientes secuencias mutantes en la matriz para ser considerado mutante.
 Nota: El código incluye comentarios detallados para facilitar la comprensión del funcionamiento.
 
-```
-Cómo ejecutarlo:
+# Cómo ejecutarlo:
 
+```
 Ingresar al directorio donde está el archivo, abrir la terminal e ingresar por teclado: Mutants.py
 Es necesario tener instalado python en el equipo
 Ingresar las 6 secuencias de 6 letras pedidas por teclado
